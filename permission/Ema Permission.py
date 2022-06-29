@@ -2,7 +2,7 @@ import frappe
 import frappe.desk.form.load as load
 import frappe.desk.form.save as save_
 import frappe.desk.reportview as lister
-from em_member.utils.permission import helper
+from em_member.ema_utils.permission import helper
 from frappe.model.db_query import DatabaseQuery
 from frappe import _
 from frappe.desk.form.load import run_onload

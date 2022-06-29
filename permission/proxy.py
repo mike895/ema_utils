@@ -26,7 +26,7 @@ def get_user_permission():
 def proxy_count():
     if(is_required_doctype()):
         doctype = get_form_params().get("doctype") 
-        return importlib.import_module(f"em_member.utils.permission.{doctype}").getcount(get_user_permission())
+        return importlib.import_module(f"em_member.ema_utils.permission.{doctype}").getcount(get_user_permission())
     else:
         return get_count()
 
@@ -36,7 +36,7 @@ def proxy_save(doc, action):
     if(is_required_doctype(_doc['doctype'])):
         doc= _doc
         doctype = doc['doctype']
-        return importlib.import_module(f"em_member.utils.permission.{doctype}").save(get_user_permission(), doc, action)
+        return importlib.import_module(f"em_member.ema_utils.permission.{doctype}").save(get_user_permission(), doc, action)
     else:
         return save.savedocs(doc, action)
 
@@ -44,14 +44,14 @@ def proxy_save(doc, action):
 def proxy_get():
     if(is_required_doctype()):
         doctype = get_form_params().get("doctype") 
-        return importlib.import_module(f"em_member.utils.permission.{doctype}").getlist(get_user_permission())
+        return importlib.import_module(f"em_member.ema_utils.permission.{doctype}").getlist(get_user_permission())
     else:
         return get()
 
 @frappe.whitelist()
 def proxy_doc(doctype, name):
     if(is_required_doctype(doctype)):
-        return importlib.import_module(f"em_member.utils.permission.{doctype}").getdoc(name, get_user_permission())
+        return importlib.import_module(f"em_member.ema_utils.permission.{doctype}").getdoc(name, get_user_permission())
     else:
         return load.getdoc(doctype, name)
         
